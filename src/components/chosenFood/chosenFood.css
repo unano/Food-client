@@ -1,0 +1,90 @@
+.chosenFood,.chosenFood2{
+    width:240px;
+    height: 50px;
+    background-color: white;
+    margin: 5px;
+    padding: 2px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+  }
+  
+  .chosenFoodName{
+    width:188px;
+    margin-right: 2px;
+    height: 48px;
+    border: 1px solid rgb(50, 72, 168);
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 50px;
+    font-size: 26px;
+    color: rgb(50, 72, 168);
+    font-family: 'New Tegomin', serif;
+  }
+  
+  .chosenFoodAmount{
+    width:48px;
+    margin-right: 0px;
+    height: 50px;
+    display: inline-block;
+    background-color: rgb(50, 72, 168);
+    vertical-align: middle;
+    text-align: center;
+    line-height: 50px;
+    font-size: 30px;
+    color: white;
+    font-family: 'New Tegomin', serif;
+  }
+  
+  .chosenFoodAction,.chosenFoodAction2,.chosenFoodActionNum{
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    display: inline-block;
+    border: 1px solid rgb(50, 72, 168);
+    margin-right: 4px;
+    font-family: 'New Tegomin', serif;
+    text-align: center;
+    line-height: 46px;
+    font-size: 20px;
+    color: rgb(50, 72, 168);
+  }
+  
+  .chosenFoodAction2{
+    background-color: rgb(50, 72, 168);
+    color: white;
+    margin: 0px;
+    width: 46px;
+    margin-left: -2px;
+  }
+  
+  .chosenFoodActionNum{
+    width: 80px;
+  }
+  
+  
+  .chosenFood2{
+    position: relative;
+    margin-left: -2px;
+    margin-top: -52px;
+  }
+
+  .showAmount-enter {
+    clip-path: inset(0 0 100% 0);
+  }
+  .showAmount-enter-active {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 300ms;
+  }
+  .showAmount-enter-done {
+    clip-path: inset(0 0 0 0);
+  }
+  .showAmount-exit {
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 300ms;
+  }
+  .showAmount-exit-active {
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 300ms;
+  }

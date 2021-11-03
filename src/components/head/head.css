@@ -1,0 +1,95 @@
+.head{
+    width:99%;
+    height: 100px;
+    background-color: white;
+    background-image: linear-gradient(40deg, rgb(232, 255, 252), rgb(255, 252, 234), rgb(255, 255, 255)); 
+    box-shadow: 0px 15px 15px -5px rgba(95, 95, 95, 0.267);
+    border-bottom: 5px solid rgb(0, 2, 117);
+    position: fixed;
+    z-index: 100;
+}
+
+.headWord{
+    color: rgb(0, 0, 0);
+    font-family: 'New Tegomin', serif;
+
+}
+
+#headWordInside{
+  float: left;
+  margin-top: 0px;
+  font-size: 80px;
+  margin: 0;
+  padding: 0;
+}
+
+.button1{
+    margin-left: 10px;
+    float: left;
+    font-size: 30px;
+    margin-top: 20px;
+    color: gray;
+}
+.button2{
+    width: 60px;
+    z-index: 3;
+    color: rgb(13, 15, 133);
+    padding-right: 1px;
+    margin-right: 8px;
+}
+.navbar{
+    display: flex;
+    float: right;
+    font-size: 36px;
+    rotate: 90;
+}
+
+/* .button1:hover{
+    animation-name: changeBG;
+    animation-duration: 1s;
+    animation-fill-mode : forwards;
+} */
+
+.button2:hover{
+    animation-name: changeBG;
+    animation-duration: 1s;
+    animation-fill-mode : forwards;
+    cursor:pointer;
+}
+
+@keyframes changeBG {
+    from { color:black; }
+    to {color:white;}
+  }
+
+.background{
+    width: 60px;
+    height: 100px;
+    background-color: rgb(50, 72, 168);
+    position: relative;
+    margin-left: -70px;
+    z-index: 1;
+    margin-right: 10px;
+    border-bottom: 5px solid white;
+}
+
+.alert-enter {
+  height: 0px;
+}
+.alert-enter-active {
+  height: 100px;
+  transition: height 300ms;
+  box-shadow: 0px 8px 10px -1px rgba(155, 155, 155, 0.815);
+}
+.alert-enter-done {
+  height: 100px;
+  box-shadow: 0px 8px 10px -1px rgba(139, 139, 139, 0.815);
+}
+.alert-exit {
+  height: 0px;
+  transition: height 300ms;
+}
+.alert-exit-active {
+  height: 0px;
+  transition: height 300ms;
+}

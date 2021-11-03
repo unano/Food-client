@@ -1,0 +1,158 @@
+.orderBody{
+    display: flex;
+}
+
+.menuLeft{
+    color:rgb(50, 72, 168);
+    flex: 55%;
+    width:700px;
+    margin-top: 140px;
+    height: 600px;
+    margin-left: 50px;
+    border: 1px solid rgb(50, 72, 168);
+    margin-right: 40px;
+}
+
+.menuRight{
+    color:blue;
+    flex: 38%;
+    width:300px;
+    margin-top: 140px;
+    background-color: rgb(50, 72, 168);
+    height: 600px;
+    position: relative;
+    border: 1px solid rgb(50, 72, 168);
+    margin-right: 20px;
+    padding-left: 10px;
+}
+.foodKinds{
+    width: 15%;
+    height: 100%;
+    padding-top: 5px;
+    float: left;
+    z-index: 5;
+}
+
+.foodName{
+  width: 15%;
+  height: 95%;
+  float: left;
+  border-left: 1px solid rgb(50, 72, 168);
+  margin-top: 5px;
+}
+
+
+.foodPic{
+    width: 500px;
+    height: 585px;
+    /* border: 1px solid rgb(78, 172, 172); */
+    float: left;
+    margin-left: 15px;
+    margin-top: 5px;
+    position: relative;
+    z-index: -8;
+    justify-content: center;
+}
+
+
+.foodKind2Inside:hover{
+    animation-name: showRI;
+    animation-duration: 2s;
+    animation-fill-mode : forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes showRI {
+    from {width: 0px;}
+    to {width: 122px;}
+  }
+
+
+  #text {
+    margin: 0;
+    font-size: 100px;
+    animation: reveal 2s forwards;
+  }
+  
+  @keyframes reveal {
+    from {
+      clip-path: inset(0 0 0 100%);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+.foodPicLarge{
+  width:100%;
+  height: 400px;
+  border: 1px solid rgb(50, 72, 168);
+}
+
+.foodPicSmall{
+  width: 40%;
+  height: 160px;
+  border: 1px solid rgb(50, 72, 168);
+  margin: 0px auto;
+  margin-top: 20px;
+
+}
+
+.menuRightTitle{
+  font-size: 30px;
+  color: white;
+  font-family: 'New Tegomin', serif;
+  margin-left: 5px;
+  border-left: 5px solid white;
+  margin-top: 5px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  margin-bottom: 8px;
+}
+
+.totalMoney{
+  margin: 0px auto;
+  width: 82%;
+  height: 60px;
+  background-color: white;
+  position:absolute; 
+  bottom:5px;
+  left: 10px;
+}
+
+.totalMoneyTitle{
+  width: 60px;
+  height: 40px;
+  color: rgb(50, 72, 168);
+  font-family: 'New Tegomin', serif;
+  border-right: 2px solid rgb(50, 72, 168);
+  font-size: 30px;
+  line-height: 40px;
+  margin-left: 15px;
+  margin-top: 7px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  display: inline-block;
+}
+
+.totalMoneyMoney{
+  float: right;
+  color: rgb(50, 72, 168);
+  font-family: 'New Tegomin', serif;
+  font-size: 30px;
+  margin-right: 20px;
+  margin-top: 5px;
+}
+.pay{
+  width: 15%;
+  height: 56px;
+  background-color: rgb(50, 72, 168);
+  position:absolute; 
+  bottom:5px;
+  right: 10px;
+  font-size: 30px;
+  font-family: 'New Tegomin', serif;
+  color: white;
+  text-align: center;
+  border: 2px solid white;
+}
