@@ -8,7 +8,7 @@ import Board from "../pic/board.png";
 import ToMenu from "../pic/toMenu.png";
 import Egg from "../pic/egg.png";
 import Head from "../components/head/head"
-
+import { Link } from "react-router-dom";
 
 const Test = () => {
   const [scrollDown, setScrollDown] = useState(false);
@@ -21,19 +21,18 @@ const Test = () => {
     if(e.deltaY>0){
       //scrolldown
       setScrollDown(true);
-      if (index === list.length - 1) setIndex(0);
-                  else {
-                    setIndex((index) => index + 1);
-                  }
-
+      if (index >= list.length - 1) setIndex(0);
+      else {
+          setIndex((index) => index + 1);
+      }
     }
     else{
       //scrollup
       setScrollDown(false);
-      if (index === 0) setIndex(list.length - 1);
-                  else {
-                    setIndex((index) => index - 1);
-                  }
+      if (index <= 0) setIndex(list.length - 1);
+      else {
+          setIndex((index) => index - 1);
+      }
     }
 
   }
@@ -64,7 +63,7 @@ const Test = () => {
                 +Sukiya套餐的收據信息中抽籤抽取100人，
                 送您“ Nintendo Switch TM 小新欧士与暑假-永无止境的七日游-”！ </span></div>
                 <img src={ToMenu} alt="toMenu" id="toMenu"></img>
-                <div id ="toMenu2">View all food</div>
+                <div id ="toMenu2"><Link id ="toMenu20" to="/order">View all food</Link></div>
             </div>
             </div>
           {/* <div className="right">

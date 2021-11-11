@@ -28,6 +28,7 @@
     animation-name: leftContent;
     animation-duration: 2s;
     font-size: 100px;
+    margin-top: -50px;
 }
 #leftContainer{
   width: 500px;
@@ -76,7 +77,7 @@
   font-weight: 200;
 }
 
-#toMenu2:hover{
+#toMenu20:hover{
   font-weight: 900;
   color: azure;
   cursor:pointer;
@@ -290,3 +291,7 @@ font-weight: 700;
   /* color: rgb(28, 28, 138); */
 }
  
+#toMenu20{
+  text-decoration: none;
+  color: white;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./head.css";
 import { CSSTransition} from "react-transition-group";
-
+import { Link } from "react-router-dom";
 const Head = () => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
@@ -20,7 +20,7 @@ const Head = () => {
                 onMouseOver={() => setShow3(true)}
                 onMouseLeave={() => setShow3(false)}
               >
-                主<br />頁
+                <Link className="button2" to="/">主<br />頁</Link>
               </div>
 
               <CSSTransition
@@ -40,7 +40,7 @@ const Head = () => {
                 onMouseOver={() => setShow(true)}
                 onMouseLeave={() => setShow(false)}
               >
-                点<br/>菜
+                <Link className="button2" to="/order">点<br/>菜</Link>
               </div>
               <CSSTransition
                 in={show}
@@ -59,7 +59,7 @@ const Head = () => {
                 onMouseOver={() => setShow2(true)}
                 onMouseLeave={() => setShow2(false)}
               >
-                登<br />陸
+                <Link className="button2" to="/login">登<br />陸</Link>
               </div>
               <CSSTransition
                 in={show2}

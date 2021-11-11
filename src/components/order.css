@@ -3,6 +3,7 @@
 }
 
 .menuLeft{
+    position: relative;
     color:rgb(50, 72, 168);
     flex: 55%;
     width:700px;
@@ -10,7 +11,7 @@
     height: 600px;
     margin-left: 50px;
     border: 1px solid rgb(50, 72, 168);
-    margin-right: 40px;
+    margin-right: 40px;  
 }
 
 .menuRight{
@@ -21,36 +22,40 @@
     background-color: rgb(50, 72, 168);
     height: 600px;
     position: relative;
-    border: 1px solid rgb(50, 72, 168);
+    border: 2px solid rgb(50, 72, 168);
     margin-right: 20px;
     padding-left: 10px;
 }
-.foodKinds{
-    width: 15%;
-    height: 100%;
-    padding-top: 5px;
-    float: left;
-    z-index: 5;
+
+.foodNames{
+  width: 110px;
+  height: 95.8%;
+  float: left;
+  margin-top: 10px;
+  background-color: rgb(80, 106, 223);
+  overflow: hidden;
+  white-space:nowrap;
+  z-index: -100;
+  padding-left: 15px;
+  padding-top: 5px;
 }
 
 .foodName{
-  width: 15%;
-  height: 95%;
-  float: left;
-  border-left: 1px solid rgb(50, 72, 168);
-  margin-top: 5px;
+  font-size: 25px;
+  font-family: 'New Tegomin', serif;
+  color: white;
+  margin-bottom: 5px;
 }
 
-
 .foodPic{
-    width: 500px;
+    width: 505px;
     height: 585px;
     /* border: 1px solid rgb(78, 172, 172); */
     float: left;
     margin-left: 15px;
-    margin-top: 5px;
+    margin-top: 10px;
     position: relative;
-    z-index: -8;
+    z-index: 2;
     justify-content: center;
 }
 
@@ -84,17 +89,18 @@
   }
 
 .foodPicLarge{
-  width:100%;
-  height: 400px;
+  width:98%;
+  height: 500px;
   border: 1px solid rgb(50, 72, 168);
 }
 
 .foodPicSmall{
-  width: 40%;
-  height: 160px;
+  width: 98%;
+  height: 64px;
   border: 1px solid rgb(50, 72, 168);
   margin: 0px auto;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-left: 0px;
 
 }
 
@@ -103,8 +109,8 @@
   color: white;
   font-family: 'New Tegomin', serif;
   margin-left: 5px;
-  border-left: 5px solid white;
-  margin-top: 5px;
+  border-left: 4px solid white;
+  margin-top: 10px;
   padding-bottom: 3px;
   padding-left: 5px;
   margin-bottom: 8px;
@@ -155,4 +161,66 @@
   color: white;
   text-align: center;
   border: 2px solid white;
+  line-height: 50px;
+}
+
+
+.rightOpen-enter{
+  width: 0px;
+}
+.rightOpen-exit{
+  width: 110px;
+}
+.rightOpen-enter-done {
+  width: 110px;
+}
+.rightOpen-enter-active{
+  width: 110px;
+  transition: width 600ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.rightOpen-exit-active{
+  width: 0px;
+  transition: width 600ms cubic-bezier(0.61, 1, 0.88, 1);
+}
+
+.foodNameLine{
+  height: 1px;
+  width: 80px;
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+.foodsizeIcon,.foodPrize,.foodNameUnder,.foodsizeIconOn{
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  text-align: center;
+  font-family: 'New Tegomin', serif;
+  display: inline-block;
+  border:1px solid rgb(50, 72, 168);
+  font-size: 30px;
+  line-height: 45px;
+  z-index: 15;
+  cursor: Default;
+}
+
+.foodNameUnder{
+  width: 140px;
+  display: inline-block;
+  font-family: 'New Tegomin', serif;
+  vertical-align: top;
+  font-size: 25px;
+  background-color: rgb(50, 72, 168);
+  color: white;
+}
+
+.foodPrize{
+  width: 80px;
+  display: inline-block;
+
+}
+
+.foodsizeIconOn{
+  background-color: rgb(50, 72, 168);
+  color: white;
 }

@@ -10,7 +10,7 @@
 }
 
 .headWord{
-    color: rgb(0, 0, 0);
+    color: rgb(0, 2, 117);
     font-family: 'New Tegomin', serif;
 
 }
@@ -33,9 +33,10 @@
 .button2{
     width: 60px;
     z-index: 3;
-    color: rgb(13, 15, 133);
+    color: rgb(50, 72, 168);
     padding-right: 1px;
     margin-right: 8px;
+    text-decoration: none;
 }
 .navbar{
     display: flex;
@@ -58,7 +59,7 @@
 }
 
 @keyframes changeBG {
-    from { color:black; }
+    from { color:rgb(50, 72, 168); }
     to {color:white;}
   }
 
@@ -92,4 +93,9 @@
 .alert-exit-active {
   height: 0px;
   transition: height 300ms;
+}
+
+.link{
+  text-decoration: none;
+  color: rgb(50, 72, 168);
 }

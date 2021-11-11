@@ -2,11 +2,17 @@ import React, { useEffect, useState } from "react";
 import "./foodKind.css";
 import { CSSTransition} from "react-transition-group";
 
-const FoodKind = ({foodName, info, ifShow}) => {
+const FoodKind = ({foodKind, info, ifShow, leftOn}) => {
+    const foodName = foodKind.foodKind;
     const [show, setShow] = useState(false);
     const [clicked, setClicked] = useState(false);
     const judge2 = () =>{
         clicked?setShow(true) :setShow(false);
+        clicked?leftOn(true) :leftOn(false);
+    }
+    const showBlue = () =>{
+        setShow(true);
+        leftOn(true);
     }
     const judge = () =>{
         setClicked(true);
@@ -24,7 +30,10 @@ const FoodKind = ({foodName, info, ifShow}) => {
         }
     },[foodName, ifShow])
     return (
+        
       <>
+      {foodKind ? 
+      <div>
       <CSSTransition
                 in={show}
                 timeout={300}
@@ -47,7 +56,7 @@ const FoodKind = ({foodName, info, ifShow}) => {
                 classNames="foodKind"
               >
             <div className="foodKind"
-            onMouseOver={() => setShow(true)}
+            onMouseOver={showBlue}
             onMouseLeave={judge2}
             onClick={judge}>
                 {foodName}
@@ -56,7 +65,8 @@ const FoodKind = ({foodName, info, ifShow}) => {
             <div className="foodKind2">
             <div className="foodKind2Inside"></div>
             </div>
-</>
+            </div>:null}
+        </>
 );
 };
 
