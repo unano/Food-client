@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./foodKind.css";
 import { CSSTransition} from "react-transition-group";
 
-const FoodKind = ({foodKind, info, ifShow, leftOn}) => {
+const FoodKind = ({foodKind, info, ifShow, leftOn, setKindId}) => {
     const foodName = foodKind.foodKind;
     const [show, setShow] = useState(false);
     const [clicked, setClicked] = useState(false);
@@ -13,13 +13,13 @@ const FoodKind = ({foodKind, info, ifShow, leftOn}) => {
     const showBlue = () =>{
         setShow(true);
         leftOn(true);
+        setKindId(foodKind.foodKindId);
     }
     const judge = () =>{
         setClicked(true);
         setShow(true);
         info(foodName);
     }
-    console.log(ifShow);
 
     useEffect(() => {
         if(ifShow===foodName)

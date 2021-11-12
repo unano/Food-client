@@ -1,0 +1,14 @@
+.foodName{
+  font-size: 25px;
+  font-family: 'New Tegomin', serif;
+  color: white;
+  margin-bottom: 5px;
+  cursor: default;
+}
+
+.foodNameLine{
+  height: 1px;
+  width: 80px;
+  background-color: white;
+  margin-bottom: 5px;
+}

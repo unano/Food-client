@@ -20,6 +20,16 @@ export const getFoodKinds = () => {
         .then(res => res.json())
 };
 
+export const getFood = (foodKindId) => {
+    return fetch(
+        `/api/foods/${foodKindId}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+    }
+    )
+        .then(res => res.json())
+};
 
 export const login = (phoneNumber, password) => {
     return fetch('/api/users', {

@@ -1,15 +1,16 @@
 import React from "react";
-import FoodKind from "../foodKind"
-import "./foodKinds.css"
-const FoodKinds = ({foodKinds, info, ifShow, leftOn}) => {
-  const allFoodKinds = foodKinds.map(foodKind => (
-    <FoodKind foodKind={foodKind} info={info} ifShow={ifShow} leftOn={leftOn}/>
+import Food from "../food"
+import "./foods.css"
+const Foods = ({foods, kind, info}) => {
+  const chosenFood = foods.filter(food => food.foodKindId === kind)
+  .map(food => (
+    <Food food={food} kind={kind} info={info}/>
   ));
   return (
-  <div className="foodKinds">
-    {allFoodKinds}
+  <div className="foodsuu">
+    {chosenFood}
   </div>
   )
 };
 
-export default FoodKinds;
+export default Foods;
