@@ -12,6 +12,7 @@
     margin-left: 50px;
     border: 1px solid rgb(50, 72, 168);
     margin-right: 40px;  
+    background-image: linear-gradient(40deg, rgb(232, 255, 252), rgb(252, 255, 248), rgb(255, 255, 255)); 
 }
 
 .menuRight{
@@ -107,6 +108,7 @@
   padding-bottom: 3px;
   padding-left: 5px;
   margin-bottom: 8px;
+  display: inline-block;
 }
 
 .totalMoney{
@@ -188,6 +190,7 @@
   line-height: 45px;
   z-index: 15;
   cursor: Default;
+  user-select: none;
 }
 
 .foodNameUnder{
@@ -211,7 +214,7 @@
   color: white;
 }
 
-.deleteAlert{
+.deleteAlert,.deleteAlert2{
   width: 360px;
   height: 100px;
   position: fixed;
@@ -220,12 +223,16 @@
   background-color: white;
   z-index: 10000;
   border-radius: 5px;
-  box-shadow: 5px 5px 10px 0px gray;
+  box-shadow: 0px 0px 10px 0px rgb(53, 53, 53);
   font-family: 'New Tegomin', serif;
   text-align: center;
   font-size: 20px;
   padding-top: 10px;
   color: rgb(50, 72, 168);
+}
+
+.deleteAlert2{
+  color: brown;
 }
 
 .yesBtn, .noBtn{
@@ -240,6 +247,46 @@
 
 .noBtn{
   left: 50%;
+  background-color: rgb(50, 72, 168);
+  color: white;
+}
+
+.alertStyle-enter{
+  transform: translateY(-100%);
+}
+.alertStyle-exit{
+  transform: translateY(0);
+}
+.alertStyle-enter-done {
+  transform: translateY(0);
+}
+.alertStyle-enter-active{
+  transform: translateY(0);
+  transition: transform 300ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.alertStyle-exit-active{
+  transform: translateY(-150%);
+  transition: transform 300ms cubic-bezier(0.61, 1, 0.88, 1);
+}
+
+.deleteAll{
+  width: 75px;
+  height: 42px;
+  background-color: white;
+  float: right;
+  margin: 8px;
+  color: rgb(50, 72, 168);
+  font-family: 'New Tegomin', serif;
+  text-align: center;
+  line-height: 40px;
+  font-size: 25px;
+  cursor: default;
+  border: 2px solid white;
+  transition: 0.4s all;
+  user-select: none;
+}
+
+.deleteAll:hover{
   background-color: rgb(50, 72, 168);
   color: white;
 }

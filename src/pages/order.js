@@ -1,27 +1,34 @@
 import React, {useState, useContext, useEffect} from "react";
 import Head from "../components/head/head"
-import ChosenFood from "./chosenFood"
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import "./order.css";
 import { FoodContext } from '../contexts/foodContext';
 import FoodKinds from "../components/foodKinds"
 import Foods from "../components/foods"
 import ChosenFoods from "../components/chosenFoods"
+import { NavigationType } from "react-router";
+import { Link } from "react-router-dom";
 const Order = () =>{
   const [show, setShow] = useState(false);
   const [icon, setIcon] = useState("null");
-  const [foodKind, setFoodKind] = useState("");
+  const [foodKindId, setFoodKindId] = useState("");
   const [kindId, setKindId] =useState("");
   const [food, setFood] = useState("");
   const [price, setPrice] = useState("0");
   const [chosenFoodList, setChosenFoodList] = useState([]);
   const [chosenFood, setChosenFood] = useState();
   const [sumMoney, setSumMoney] = useState(0);
-  const [deletes, setDeletes] = useState("")
+  const [deletes, setDeletes] = useState({})
   const [alert ,setAlert] = useState(false);
+  const [alert2 ,setAlert2] = useState(false);
   const context = useContext(FoodContext);
   const foodKinds = context.foodKinds;
   const foods = context.foods;
+
+  useEffect(() =>{
+    context.setChosenFoods(chosenFoodList);
+    context.setMoney(sumMoney);
+  }, [chosenFoodList, sumMoney])
   useEffect(() => {
     if(chosenFood){
       const inOrNot = chosenFoodList.filter(cFood => cFood.foodName===chosenFood.foodName && cFood.foodSize===chosenFood.foodSize);
@@ -48,7 +55,7 @@ const Order = () =>{
   }
 
   const unsetOther =(value) =>{
-    setFoodKind(value);
+    setFoodKindId(value);
   }
   const setShowFunc = (value) =>{
     setShow(value);
@@ -69,14 +76,23 @@ const Order = () =>{
 
   const doDelete =() =>{
     // name:chosenFood.foodName, size:chosenFood.foodSize
-    var array = chosenFoodList
-    array = chosenFoodList.filter(cFood => cFood.foodName!==deletes.name && cFood.foodSize!==deletes.size);
+    var array = chosenFoodList;
+    console.log(deletes);
+    array = chosenFoodList.filter(cFood => !(cFood.foodName===deletes.name && cFood.foodSize===deletes.size));
+    console.log(array);
     setChosenFoodList(array);
     setAlert(false);
   }
 
+  const doDeleteAll = () =>{
+    var array = [];
+    setChosenFoodList(array);
+    setAlert2(false);
+    setSumMoney(0);
+  }
+
   const addToChosenList = () =>{
-    if(price!==0){
+    if(price!=="0" && price!==0){
       const test = chosenFoodList.filter(cFood => cFood.foodName === food && cFood.foodSize === icon)
       if(test.length===0)
       setChosenFood({foodName:food, foodSize:icon, foodPrice:price, foodAmount:1});
@@ -94,14 +110,32 @@ const Order = () =>{
   }
     return(
         <>
-        {alert && <div className="deleteAlert">确定删除商品吗？<br/> Are you sure to delete this food?
+        <CSSTransition
+                in={alert}
+                timeout={300}
+                classNames="alertStyle"
+                unmountOnExit
+              >
+        <div className="deleteAlert">确定删除商品吗？<br/> Are you sure to delete this food?
         <div className="yesBtn" onClick={doDelete}>Yes</div>
         <div className="noBtn" onClick={() =>setAlert(false)}>No</div>
-        </div>}
+        </div>
+        </CSSTransition>
+        <CSSTransition
+                in={alert2}
+                timeout={300}
+                classNames="alertStyle"
+                unmountOnExit
+              >
+        <div className="deleteAlert2">确定删除所有商品吗？<br/> Are you sure to delete All food?
+        <div className="yesBtn" onClick={doDeleteAll}>Yes</div>
+        <div className="noBtn" onClick={() =>setAlert2(false)}>No</div>
+        </div>
+        </CSSTransition>
         <div className="orderBody">
         <Head/>
         <div className="menuLeft">
-            <FoodKinds foodKinds={foodKinds} info={unsetOther} ifShow={foodKind} leftOn={setShowFunc} setKindId={setKindId}/>
+            <FoodKinds foodKinds={foodKinds} info={unsetOther} ifShow={foodKindId} leftOn={setShowFunc} setKindId={setKindId}/>
             <CSSTransition
                 in={show}
                 timeout={600}
@@ -128,12 +162,13 @@ const Order = () =>{
         </div>
         <div className="menuRight">
         <div className="menuRightTitle">已選</div>
+        <div className="deleteAll" onClick={() => setAlert2(true)}>清空</div>
           <ChosenFoods foodlist={chosenFoodList} getMoney={getMoney} amountSet={amountSet} check0={check0}/>
           <div className="totalMoney">
           <div className="totalMoneyTitle">總計</div>
           <div className="totalMoneyMoney">${sumMoney}</div>
           </div>
-          <div className="pay">付款</div>
+          <Link to="./check"><div className="pay">付款</div></Link>
         </div>
         </div>
         </>

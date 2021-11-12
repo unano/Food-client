@@ -1,0 +1,36 @@
+.confirmOrder{
+    width: 460px;
+    height: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px gray;
+    font-size: 40px;
+    padding: 20px;
+    position: relative;
+}
+
+
+.confirmOrderTitle{
+    font-size: 40px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+.checkTotalPrice{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    bottom: 70px;
+    right: 20px;
+    font-size: 30px;
+}
+
+.checkPay{
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    border: 1px solid black;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}

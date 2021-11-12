@@ -6,6 +6,8 @@ export const FoodContext = createContext(null)
 const FoodContextProvider = props => {
   const [foods, setFoods] = useState([]);
   const [foodKinds, setFoodKinds] = useState([]);
+  const [chosenFoods, setChosenFoods] = useState([]);
+  const [money, setMoney] = useState([]);
   useEffect(() => {
     getFoods().then(food => {
       setFoods(food);
@@ -23,7 +25,11 @@ const FoodContextProvider = props => {
     <FoodContext.Provider
       value={{
         foods:foods,
-        foodKinds:foodKinds
+        foodKinds:foodKinds,
+        setChosenFoods: setChosenFoods,
+        chosenFoods:chosenFoods,
+        money:money,
+        setMoney:setMoney
       }}
     >
       {props.children}
