@@ -1,3 +1,6 @@
+[build]
+    command = netlify.toml && CI= npm run build"
+
 # API proxying
 [[redirects]]
     from = "/api/*"
