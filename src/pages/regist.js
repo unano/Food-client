@@ -36,6 +36,7 @@ const Regist = () =>{
               if (result2) {
                 const ifRegist = context.register(username, password, phoneNumber);
                 if (ifRegist) {
+                  setErrMsg("");
                   setSuccessMsg("Register Succeed!");
                   setTimeout(() => {setNav(true)}, 1000)
                   setRegistered(true);
