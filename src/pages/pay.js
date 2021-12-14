@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import StripeCheckout from "react-stripe-checkout";
 import { postOrder } from "../api/api";
-
+import { useNavigate } from "react-router-dom";
 const Pay = ({ phone, money }) => {
+    const navigate = useNavigate();
     function doHandleDate() {
         var myDate = new Date();
         var tYear = myDate.getFullYear();
@@ -36,6 +37,11 @@ const Pay = ({ phone, money }) => {
         var date = doHandleDate();
         // var questionId = createId();
         await postOrder(phone, money, date);
+        jump();
+    }
+
+    const jump =() =>{
+        navigate('/personal');
     }
 
     const makePayment = token => {
