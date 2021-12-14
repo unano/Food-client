@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/api/*"
-  to = "https://food-web-server.herokuapp.com/api:splat"
+  to = "https://food-web-server.herokuapp.com/:splat"
   status = 200
   force = true
 
