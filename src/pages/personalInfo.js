@@ -21,7 +21,6 @@ const PersonalInfoPage = () =>{
     const [address, setAddress] = useState();
     const [showErr, setShowErr] = useState(false);
     const [showErrMsg, setShowErrMsg] = useState(["",""]);
-    console.log(userInfo)
 
     useEffect(() => {
         getUserInfo(phone).then(user => {
@@ -41,14 +40,15 @@ const PersonalInfoPage = () =>{
     }
     
     const updatePhoneNs = async(phoneN) =>{
-        var reg1 = /^([0-9]+.?[0-9]*){8,}$/;
+        var reg1 = /^[0-9]{8,}$/;
         var result1 = reg1.test(phoneN);
-        const result2 = await context.duplicatePhoneNumber(phoneN);
+        console.log(result1);
         if(!result1){
             setShowErrMsg(["不合法的號碼","Invalid phone number"]);
             setShowErr(true);
-          }
+        }
         else{
+            const result2 = await context.duplicatePhoneNumber(phoneN);
             if (result2) {
                 await changePhoneNumber(phone, phoneN);
                 context.setPhone(phoneN);
