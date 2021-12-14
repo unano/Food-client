@@ -1,6 +1,6 @@
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/login"
+  to = "/regist"
   status = 200
 
 [[redirects]]
