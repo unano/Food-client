@@ -27,6 +27,7 @@ const Regist = () =>{
         else if (!username) setErrMsg("Please enter your name");
         else if (!password) setErrMsg("Please enter password");
         else if(!passwordAgain) setErrMsg("Please confirm password");
+        else if (username.length<3 || username.length>15) setErrMsg("Username too short/long");
         else{
           if(password === passwordAgain){
             var reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;

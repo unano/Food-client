@@ -21,6 +21,7 @@ const PersonalInfoPage = () =>{
     const [phoneN, setPhoneN] = useState();
     const [address, setAddress] = useState();
     const [showErr, setShowErr] = useState(false);
+    const [showErrMsg, setShowErrMsg] = useState(["",""]);
     console.log(userInfo)
 
     useEffect(() => {
@@ -36,8 +37,13 @@ const PersonalInfoPage = () =>{
       };
     
     const updateNames = (name) =>{
-        updateName(name);
-        setModify1(false);
+        if (name.length<3 || name.length>15){
+            setShowErrMsg(["用戶名太短/太長","Username too short/long"]);
+            setShowErr(true);
+        } 
+        else{updateName(name);
+            setModify1(false);
+        }
     }
 
     const updatePhoneN = async (phoneN) => {
@@ -46,6 +52,13 @@ const PersonalInfoPage = () =>{
       };
     
     const updatePhoneNs = async(phoneN) =>{
+        var reg1 = /^([0-9]+.?[0-9]*){8,}$/;
+        var result1 = reg1.test(phoneN);
+        if(!result1){
+            setShowErrMsg(["不合法的號碼","Invalid phone number"]);
+            setShowErr(true);
+          }
+        else{
         const result2 = await context.duplicatePhoneNumber(phoneN);
               if (result2) {
                 updatePhoneN(phoneN);
@@ -53,8 +66,10 @@ const PersonalInfoPage = () =>{
                 context.setPhone(phoneN);
               }
               else {
+                setShowErrMsg(["此號碼已被注冊", "The phone number is used"]);
                 setShowErr(true);
               }
+            }
     }
 
     const updateAddress = async (address) => {
@@ -81,7 +96,7 @@ const PersonalInfoPage = () =>{
                 classNames="alertStyle"
                 unmountOnExit
               >
-        <div className="deleteAlert">此號碼已被注冊<br/> The phone number is used
+        <div className="deleteAlert">{showErrMsg[0]}<br/> {showErrMsg[1]}
         <div className="noBtn2" onClick={() =>setShowErr(false)}>OK</div>
         </div>
         </CSSTransition>
