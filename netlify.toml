@@ -1,5 +1,5 @@
 [build]
-    command = netlify.toml && CI= npm run build"
+    command = " netlify.toml && CI= npm run build"
 
 # API proxying
 [[redirects]]
