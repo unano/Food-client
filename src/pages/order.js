@@ -9,6 +9,7 @@ import ChosenFoods from "../components/chosenFoods"
 import { NavigationType } from "react-router";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from '../contexts/authContext'
 
 const Order = () =>{
   const [show, setShow] = useState(false);
@@ -23,10 +24,12 @@ const Order = () =>{
   const [deletes, setDeletes] = useState({})
   const [alert ,setAlert] = useState(false);
   const [alert2 ,setAlert2] = useState(false);
+  const [alert3 ,setAlert3] = useState(false);
   const [unset, setUnset] = useState(false);
   const context = useContext(FoodContext);
   const foodKinds = context.foodKinds;
   const foods = context.foods;
+  const authContext = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -118,9 +121,18 @@ const Order = () =>{
   }
 
   const payJump = () =>{
-    if (sumMoney!==0){
+    if(context.isAuthenticated){
+      if (sumMoney!==0){
         navigate('./check');
     }
+    }
+    else{
+      setAlert3(true);
+    }
+  }
+
+  const jump = () =>{
+    navigate('/login');
   }
     return(
         <>
@@ -144,6 +156,16 @@ const Order = () =>{
         <div className="deleteAlert2">确定删除所有商品吗？<br/> Are you sure to delete All food?
         <div className="yesBtn" onClick={doDeleteAll}>Yes</div>
         <div className="noBtn" onClick={() =>setAlert2(false)}>No</div>
+        </div>
+        </CSSTransition>
+        <CSSTransition
+                in={alert3}
+                timeout={300}
+                classNames="alertStyle"
+                unmountOnExit
+              >
+        <div className="deleteAlert">請先登錄<br/> Please login first
+        <div className="noBtn1" onClick={jump}>OK</div>
         </div>
         </CSSTransition>
         <div className="orderBody">
