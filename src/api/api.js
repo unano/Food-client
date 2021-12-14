@@ -1,6 +1,6 @@
 export const getFoods = () => {
     return fetch(
-        'https://food-web-server.herokuapp.com/api/foods', {
+        '/api/foods', {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -11,7 +11,7 @@ export const getFoods = () => {
 
 export const getFoodKinds = () => {
     return fetch(
-        'https://food-web-server.herokuapp.com/api/foodKinds', {
+        '/api/foodKinds', {
             headers: {
                 'Content-Type': 'application/json'
             }
