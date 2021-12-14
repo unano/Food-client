@@ -91,3 +91,30 @@
     font-size: 16px;
     line-height: 30px;
 }
+
+.processing{
+    width: 106%;
+    height: 106%;
+    background-color: rgba(0, 0, 0, 0.329);
+    position: absolute;
+    margin-left: -100px;
+    z-index: 100000;
+    box-shadow: 0 0 30px black;
+    text-align: center;  
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+}
+
+.checkpage{
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.procesingWord{
+    margin: 0 auto;
+    font-weight: 100;
+    margin-top: 300px;
+    padding-left: 40px;
+}

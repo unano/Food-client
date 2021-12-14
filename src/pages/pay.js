@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import StripeCheckout from "react-stripe-checkout";
 import { postOrder } from "../api/api";
 import { useNavigate } from "react-router-dom";
-const Pay = ({ phone, money }) => {
+const Pay = ({ phone, money,setWait2 }) => {
     const navigate = useNavigate();
     function doHandleDate() {
         var myDate = new Date();
@@ -45,6 +45,8 @@ const Pay = ({ phone, money }) => {
     }
 
     const makePayment = token => {
+        setWait2(true);
+
         const body = {
             product,
             token
