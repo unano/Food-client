@@ -1,6 +1,3 @@
-[build]
-    command = "sed -i \"s@https://food-web-server.herokuapp.com/api@$API_URL@g\" netlify.toml && CI= npm run build"
-
 # API proxying
 [[redirects]]
     from = "/api/*"
