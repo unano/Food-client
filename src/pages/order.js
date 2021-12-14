@@ -1,13 +1,11 @@
 import React, {useState, useContext, useEffect} from "react";
 import Head from "../components/head/head"
-import { CSSTransition, SwitchTransition } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import "./order.css";
 import { FoodContext } from '../contexts/foodContext';
 import FoodKinds from "../components/foodKinds"
 import Foods from "../components/foods"
 import ChosenFoods from "../components/chosenFoods"
-import { NavigationType } from "react-router";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../contexts/authContext'
 

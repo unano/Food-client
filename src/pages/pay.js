@@ -51,9 +51,6 @@ const Pay = ({ phone, money,setWait2 }) => {
             product,
             token
         }
-        const headers = {
-            "Content-Type": "application/json"
-        }
 
         return fetch(`/api/payment`, {
             headers: {

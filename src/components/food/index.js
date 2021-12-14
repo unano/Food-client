@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./food.css";
 
 const Food = ({food, info}) => {

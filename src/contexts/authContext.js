@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext } from "react";
 import { login, signup, testDuplicate } from "../api/api";
 
 export const AuthContext = createContext(null);

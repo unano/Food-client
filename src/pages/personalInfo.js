@@ -3,7 +3,6 @@ import "./personalInfo.css";
 import Head from "../components/head/head"
 import { AuthContext } from '../contexts/authContext';
 import { useNavigate } from "react-router-dom";
-import useUserInfo from "../hooks/useUserInfo";
 import{ changeName, changePhoneNumber, changeAddress} from "../api/api"
 import { CSSTransition } from "react-transition-group";
 import { getUserInfo } from "../api/api"
@@ -28,43 +27,33 @@ const PersonalInfoPage = () =>{
         getUserInfo(phone).then(user => {
             setUserInfo(user);
         });
-    }, [modify1, modify3, phone]);
-
-
-    const updateName = async (name) => {
-        const result = await changeName(phone, name);
-        return (result.code === 201) ? true : false;
-      };
+    }, [modify1, modify3, phone, showErr]);
     
-    const updateNames = (name) =>{
+    const updateNames = async (name) =>{
         if (name.length<3 || name.length>15){
             setShowErrMsg(["用戶名太短/太長","Username too short/long"]);
             setShowErr(true);
         } 
-        else{updateName(name);
+        else{
+            await changeName(phone, name);
             setModify1(false);
         }
     }
-
-    const updatePhoneN = async (phoneN) => {
-        const result = await changePhoneNumber(phone, phoneN);
-        return (result.code === 201) ? true : false;
-      };
     
     const updatePhoneNs = async(phoneN) =>{
         var reg1 = /^([0-9]+.?[0-9]*){8,}$/;
         var result1 = reg1.test(phoneN);
+        const result2 = await context.duplicatePhoneNumber(phoneN);
         if(!result1){
             setShowErrMsg(["不合法的號碼","Invalid phone number"]);
             setShowErr(true);
           }
         else{
-        const result2 = await context.duplicatePhoneNumber(phoneN);
-              if (result2) {
-                updatePhoneN(phoneN);
-                setModify2(false);
+            if (result2) {
+                await changePhoneNumber(phone, phoneN);
                 context.setPhone(phoneN);
-              }
+                setModify2(false);
+            }
               else {
                 setShowErrMsg(["此號碼已被注冊", "The phone number is used"]);
                 setShowErr(true);
@@ -110,7 +99,7 @@ const PersonalInfoPage = () =>{
             <div className = "personaInfoRight">
                 {userInfo?
                 <>
-            {modify1?<input type="text" className="personalInfos2 pIinput1" autoFocus defaultValue={userInfo.username} onChange={e =>{setName(e.target.value)}}></input>
+            {modify1?<input type="text" className="personalInfos2 pIinput1" autoFocus defaultValue={userInfo.username} onFocus={e =>{setName(e.target.value)}} onChange={e =>{setName(e.target.value)}}></input>
             :<div className="personalInfos2">{userInfo.username}</div>}
             {modify1?<div className="ModifyInfoBtn" onClick={() => setModify1(false)}>取消</div>:
             <div className="ModifyInfoBtn" onClick={() => setModify1(true)}>修改</div>}
@@ -122,7 +111,7 @@ const PersonalInfoPage = () =>{
             <div className="ModifyInfoBtn" onClick={() => setModify2(true)}>修改</div>}
             {modify2?<div className="ModifyInfoBtn"  onClick={() => updatePhoneNs(phoneN)}>確認</div>:<></>}
 
-            {modify3?<input type="text" className="personalInfos2 pIinput1" autoFocus defaultValue={userInfo.address} onChange={e =>{setAddress(e.target.value)}}></input>
+            {modify3?<input type="text" className="personalInfos2 pIinput1" autoFocus defaultValue={userInfo.address} onFocus={e =>{setAddress(e.target.value)}} onChange={e =>{setAddress(e.target.value)}}></input>
             :<div className="personalInfos2">{userInfo.address?userInfo.address:"No address"}</div>}
             {modify3?<div className="ModifyInfoBtn" onClick={() => setModify3(false)}>取消</div>:
             <div className="ModifyInfoBtn" onClick={() => setModify3(true)}>修改</div>}

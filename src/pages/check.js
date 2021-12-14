@@ -2,7 +2,6 @@ import React, {useState, useContext} from "react";
 import "./check.css";
 import OrderedFoods from "../components/orderedFoods"
 import { FoodContext } from '../contexts/foodContext';
-import Bg from "../pic/bg.png"
 import { useNavigate } from "react-router-dom";
 import Pay from "./pay";
 import { AuthContext } from '../contexts/authContext';
