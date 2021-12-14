@@ -119,12 +119,11 @@ const Order = () =>{
   const unsetSet =(value) =>{
     setUnset(value)
   }
-
   const payJump = () =>{
-    if(context.isAuthenticated){
+    if(authContext.isAuthenticated){
       if (sumMoney!==0){
         navigate('./check');
-    }
+      }
     }
     else{
       setAlert3(true);

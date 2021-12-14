@@ -43,6 +43,7 @@ const AuthContextProvider = (props) => {
   const signout = () => {
     setTimeout(() => setIsAuthenticated(false), 100);
   }
+  console.log(isAuthenticated)
 
   return (
     <AuthContext.Provider
