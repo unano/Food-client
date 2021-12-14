@@ -14,7 +14,7 @@ const Test = () => {
   const [scrollDown, setScrollDown] = useState(false);
 
   const [index, setIndex] = useState(0);
-  let list = ["溏心蛋", "大蒜", "敬請期待"];
+  let list = ["溏心蛋", "神秘食品", "敬請期待"];
   let list2 = [Egg, Plate, Plate]
 
   const handleScroll = (e) =>{

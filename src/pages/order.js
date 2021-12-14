@@ -8,6 +8,12 @@ import Foods from "../components/foods"
 import ChosenFoods from "../components/chosenFoods"
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../contexts/authContext'
+import drink1 from "../pic/drink1.png"
+import noodle2 from "../pic/noodle2.png"
+import noodle1 from "../pic/noodle1.png"
+import egghalf from "../pic/egghalf.png"
+import mush from "../pic/mush.png"
+import egg from "../pic/egg.png"
 
 const Order = () =>{
   const [show, setShow] = useState(false);
@@ -28,6 +34,8 @@ const Order = () =>{
   const foodKinds = context.foodKinds;
   const foods = context.foods;
   const authContext = useContext(AuthContext);
+
+  const dict = {"豚骨蛋面": noodle1, "豚骨菇面": noodle2,"溏心蛋": egg, "檸檬水": drink1, "半個滷蛋":egghalf, "一個蘑菇":mush}
 
   const navigate = useNavigate();
 
@@ -182,7 +190,9 @@ const Order = () =>{
             </div>
             </CSSTransition>
             <div className="foodPic">
-              <div className="foodPicLarge"></div>
+              <div className="foodPicLarge">
+                {food?<img src={dict[food]} alt="dd" className="foodPics"></img>:<></>}
+              </div>
               <div className="foodPicSmall">
                 <div className="foodNameUnder">{food}</div>
                 <div className={icon==="S"?"foodsizeIconOn":"foodsizeIcon"} onClick={() => setIcons("S")}>S</div>

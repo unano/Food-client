@@ -86,6 +86,9 @@
   width:98%;
   height: 500px;
   border: 1px solid rgb(50, 72, 168);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .foodPicSmall{
@@ -295,4 +298,9 @@
 .deleteAll:hover{
   background-color: rgb(50, 72, 168);
   color: white;
+}
+
+.foodPics{
+  width: 80%;
+  height: 80%;
 }
