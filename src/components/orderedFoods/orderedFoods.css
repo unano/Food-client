@@ -1,0 +1,9 @@
+.orderedFoodBox{
+    height: 380px;
+    overflow: auto;
+    overflow-x: hidden;
+    background-color: white;
+    padding: 5px;
+    padding-right: 10px;
+    border-bottom: 1px solid rgba(192, 192, 192, 0.671);
+}

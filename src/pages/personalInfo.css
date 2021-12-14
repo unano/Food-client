@@ -1,0 +1,163 @@
+.personaInfo{
+    width:300px;
+    height: 500px;
+    border: 2px solid rgb(50, 72, 168);
+    margin: 0px auto;
+    /* box-shadow: 0px 0px 10px 0px rgb(192, 192, 192); */
+    border-radius: 0px;
+    font-size: 20px;
+    padding: 5px;
+    position: relative;
+    top: 150px;
+    /* background: linear-gradient(-45deg, transparent 70px, #58a 0); */
+    font-family: 'New Tegomin', serif;
+    animation-name: expand;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes expand {
+    from{ width: 300px;}
+    to{width: 800px}
+}
+
+.logoutBtn{
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 120px;
+    height: 120px;
+    background-color: rgb(50, 72, 168);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    transition: all 0.5s;
+    border: 1px solid rgb(50, 72, 168);
+}
+
+.logoutBtn:hover{
+  transform: translateX(10%) translateY(10%) scaleX(110%) scaleY(110%);
+  background-color: rgb(45, 65, 153);
+}
+
+.personalInfos, .personalInfos2{
+    padding-top: 20px;
+    font-size: 25px;
+}
+
+.personalInfos{
+    float: right;
+}
+
+.personalInfos2{
+    border: none;
+    border-bottom: 1px solid rgb(50, 72, 168);
+    width: 60%;
+    display: inline-block;
+}
+.logoutWord{
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    transform: rotate(-45deg);
+    bottom: 20px;
+    right: 15px;
+}
+
+.personaInfoLeft{
+    height: 100%;
+    vertical-align: middle;
+    background-color: rgb(50, 72, 168);
+    width: 90px;
+    color: white;
+    padding-right: 10px;
+    display: inline-block;
+}
+
+.personaInfoRight{
+    height: 100%;
+    vertical-align: middle;
+    background-color: rgb(255, 255, 255);
+    width: 66%;
+    color: rgb(50, 72, 168);
+    padding-left: 10px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.ModifyInfoBtn{
+    width: 100px;
+    text-align: center;
+    width: 19%;
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    cursor: default;
+    user-select: none;
+    height: 30px;
+}
+
+.ModifyInfoBtn:before{ 
+    content: ''; 
+    position: absolute;   /*定位背景横线的位置*/
+    background: #dbdbdb;   /*背景横线颜色*/
+    width: 80px;            /*单侧横线的长度*/
+    height: 1px; 
+    top: 52%;
+    z-index: -1;
+} 
+
+.ModifyInfoBtn:before { 
+    left: 10%;              /*调整背景横线的左右距离*/
+} 
+
+.ModifyInfoBtn:after { 
+    content: ''; 
+    position: absolute;
+    right: 29%; 
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    top: -15%;
+    transform: rotate(45deg);
+    z-index: -1;
+    border: 1px solid #8c8c8c;
+    transition:  0.5s all;
+    opacity: 0;
+}
+
+.formText{
+    width: 240px;
+    height: 30px;
+}
+
+.formContent{
+    width: 300px;
+}
+
+.ModifyInfoBtn:hover:after{
+    opacity: 1;
+}
+
+.pIinput1{
+    height: 30px;
+    font-size: 24px;
+    outline: none;
+    width: 60%;
+    margin-top: 26px;
+    padding: 0px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.noBtn2{
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid rgb(50, 72, 168);
+    color: white;
+    background-color: rgb(50, 72, 168);
+    cursor: default;
+}
+
+/* .ModifyInfoBtnFake{
+    width: 19%;
+} */

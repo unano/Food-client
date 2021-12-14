@@ -1,0 +1,11 @@
+.orderTime{
+    color: gray;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.orderMoney{
+    color: black;
+    display: inline-block;
+    margin-left: 80px;
+}

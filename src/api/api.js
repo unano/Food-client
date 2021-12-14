@@ -70,3 +70,55 @@ export const changePassword = (username, password) => {
         body: JSON.stringify({ password: password })
     }).then(res => res.json())
 };
+
+export const getUserInfo = (userInfo) => {
+    return fetch(
+        `/api/users/${userInfo}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+    }
+    )
+        .then(res => res.json())
+};
+
+export const changeName = (phoneNumber, username) => {
+    return fetch(`/api/users/changeName`, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'put',
+        body: JSON.stringify({ phoneNumber:phoneNumber, username: username })
+    }).then(res => res.json())
+};
+
+export const changePhoneNumber = (phoneNumber, phoneNumberC) => {
+    return fetch(`/api/users/changePhone`, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'put',
+        body: JSON.stringify({ phoneNumber:phoneNumber, phoneNumberC:  phoneNumberC})
+    }).then(res => res.json())
+};
+
+export const changeAddress = (phoneNumber, address) => {
+    return fetch(`/api/users/changeAddress`, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'put',
+        body: JSON.stringify({ phoneNumber:phoneNumber, address: address})
+    }).then(res => res.json())
+};
+
+export const postOrder = (phone, money, date) => {
+    return fetch(`/api/users/${phone}/order`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': window.localStorage.getItem('token')
+        },
+        method: 'post',
+        body: JSON.stringify({ money: money, date: date })
+    }).then(res => res.json())
+};

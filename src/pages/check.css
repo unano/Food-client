@@ -1,36 +1,93 @@
 .confirmOrder{
-    width: 460px;
-    height: 600px;
+    width: 400px;
+    height: 500px;
     margin: 0 auto;
+    margin-top: 50px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px gray;
     font-size: 40px;
     padding: 20px;
     position: relative;
+    animation-name: shows;
+    animation-duration: 1s;
+    opacity: 1;
 }
 
 
 .confirmOrderTitle{
     font-size: 40px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 100;
     margin-bottom: 10px;
 }
 
 .checkTotalPrice{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: absolute;
-    bottom: 70px;
-    right: 20px;
+    bottom: 12px;
+    left: 20px;
     font-size: 30px;
+    font-weight: 300;
 }
 
-.checkPay{
+.checkPay, .backToChoose{
     width: 80px;
     height: 40px;
     font-size: 20px;
     border: 1px solid black;
     position: absolute;
-    bottom: 20px;
+    bottom: 12px;
     right: 20px;
+    text-align: center;
+    line-height: 40px;
+    opacity: 1;
+    cursor: default;
+    user-select: none;
+}
+
+@keyframes shows {
+    0% {opacity: 0.7; transform: scale(0.5, 0.5);  }
+    100% {opacity: 1; transform: scale(1, 1); }
+}
+
+.backToChoose{
+    right: 120px;
+    color: gray;
+    border-color: gray;
+}
+
+.PayWindow{
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    box-shadow: 0px 0px 10px 0px gray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -200px;
+    border-radius: 10px;
+    transition: 0.5;
+    text-align: center;
+    animation-name: shows;
+    animation-duration: 1s;
+}
+
+.choosePayWord{
+    margin: 0 auto;
+    font-size: 30px;
+    font-weight: 100;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.backToChoose2{
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    width: 60px;
+    height: 30px;
+    margin: 0 auto;
+    color: gray;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 30px;
 }

@@ -1,0 +1,6 @@
+.orderss{
+    height: 305px;
+    width: 99.5%;
+    overflow: auto;
+    overflow-x: hidden;
+}

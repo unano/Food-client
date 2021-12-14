@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./head.css";
 import { CSSTransition} from "react-transition-group";
 import { Link } from "react-router-dom";
+import { AuthContext } from '../../contexts/authContext';
+
 const Head = () => {
+  const context = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
@@ -59,7 +62,10 @@ const Head = () => {
                 onMouseOver={() => setShow2(true)}
                 onMouseLeave={() => setShow2(false)}
               >
+               {context.isAuthenticated?
+                <Link className="button2" to="/personal">信<br />息</Link>:
                 <Link className="button2" to="/login">登<br />陸</Link>
+               }
               </div>
               <CSSTransition
                 in={show2}

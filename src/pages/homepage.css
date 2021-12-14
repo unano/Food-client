@@ -30,10 +30,27 @@
     font-size: 100px;
     margin-top: -50px;
 }
+.bigWordWord{
+  animation-name: bigWordShow;
+  animation-duration: 0.5s;
+}
+@keyframes bigWordShow{
+  from{transform: translateY(-100%);}
+  to{transform: translateY(0);}
+}
 #leftContainer{
   width: 500px;
   background-color: rgb(230, 230, 230);
   padding-left: 10px;
+  animation-name: bigWordShow2;
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+@keyframes bigWordShow2{
+  from{transform: scale(0.7); opacity: 0;}
+  to{transform: scale(1); opacity: 1;}
 }
 #bigWord2{
   font-size: 50px;

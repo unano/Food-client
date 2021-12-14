@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import { login, signup, testDuplicate } from "../api/api";
 
 export const AuthContext = createContext(null);
@@ -7,7 +7,7 @@ const AuthContextProvider = (props) => {
   const existingToken = localStorage.getItem("token");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authToken, setAuthToken] = useState(existingToken);
-  const [userName, setUserName] = useState(null);
+  const [phone, setPhone] = useState(null);
   const [isDuplicate, setIsDuplicate] = useState();
 
   //Function to put JWT token in local storage.
@@ -27,7 +27,7 @@ const AuthContextProvider = (props) => {
     if (result.token) {
       setToken(result.token)
       setIsAuthenticated(true);
-      setUserName(username);
+      setPhone(username);
     }
     else {
       setIsAuthenticated(false);
@@ -43,6 +43,7 @@ const AuthContextProvider = (props) => {
   const signout = () => {
     setTimeout(() => setIsAuthenticated(false), 100);
   }
+  console.log(phone)
 
   return (
     <AuthContext.Provider
@@ -54,7 +55,8 @@ const AuthContextProvider = (props) => {
         authenticate,
         register,
         signout,
-        userName
+        phone,
+        setPhone
       }}
     >
       {props.children}

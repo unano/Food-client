@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./element.css";
+import "./homepage.css";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import TableCloth from "../pic/tablecloth3.png";
 import Plate from "../pic/plate.png";
@@ -44,7 +44,9 @@ const Test = () => {
         <Head/>
         <div className="content">
           <div className="bigWord">
+            <div className="bigWordWord">
             好好的食物
+            </div>
             <div id = "leftContainer">
             <div id="bigWord2">
               いい食べ物

@@ -8,6 +8,8 @@ import Foods from "../components/foods"
 import ChosenFoods from "../components/chosenFoods"
 import { NavigationType } from "react-router";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 const Order = () =>{
   const [show, setShow] = useState(false);
   const [icon, setIcon] = useState("null");
@@ -21,9 +23,12 @@ const Order = () =>{
   const [deletes, setDeletes] = useState({})
   const [alert ,setAlert] = useState(false);
   const [alert2 ,setAlert2] = useState(false);
+  const [unset, setUnset] = useState(false);
   const context = useContext(FoodContext);
   const foodKinds = context.foodKinds;
   const foods = context.foods;
+
+  const navigate = useNavigate();
 
   useEffect(() =>{
     context.setChosenFoods(chosenFoodList);
@@ -77,11 +82,10 @@ const Order = () =>{
   const doDelete =() =>{
     // name:chosenFood.foodName, size:chosenFood.foodSize
     var array = chosenFoodList;
-    console.log(deletes);
     array = chosenFoodList.filter(cFood => !(cFood.foodName===deletes.name && cFood.foodSize===deletes.size));
-    console.log(array);
     setChosenFoodList(array);
     setAlert(false);
+    setUnset(true);
   }
 
   const doDeleteAll = () =>{
@@ -107,6 +111,16 @@ const Order = () =>{
     if(value === "M") setPrice(choseFood.price.medium);
     if(value === "L") setPrice(choseFood.price.large);
     if(value === "0") setPrice("0");
+  }
+
+  const unsetSet =(value) =>{
+    setUnset(value)
+  }
+
+  const payJump = () =>{
+    if (sumMoney!==0){
+        navigate('./check');
+    }
   }
     return(
         <>
@@ -163,12 +177,12 @@ const Order = () =>{
         <div className="menuRight">
         <div className="menuRightTitle">已選</div>
         <div className="deleteAll" onClick={() => setAlert2(true)}>清空</div>
-          <ChosenFoods foodlist={chosenFoodList} getMoney={getMoney} amountSet={amountSet} check0={check0}/>
+          <ChosenFoods foodlist={chosenFoodList} getMoney={getMoney} amountSet={amountSet} check0={check0} unset={unset} unsetSet={unsetSet}/>
           <div className="totalMoney">
           <div className="totalMoneyTitle">總計</div>
           <div className="totalMoneyMoney">${sumMoney}</div>
           </div>
-          <Link to="./check"><div className="pay">付款</div></Link>
+          <div className="pay" onClick={payJump}>付款</div>
         </div>
         </div>
         </>

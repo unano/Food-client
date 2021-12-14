@@ -2,7 +2,6 @@ import React from "react";
 import "./orderedFood.css";
 
 const OrderedFood = ({chosenFood}) => {
- console.log(chosenFood)
   return (
     <>
 {chosenFood?
