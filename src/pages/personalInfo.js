@@ -107,7 +107,7 @@ const PersonalInfoPage = () =>{
             <div className="ModifyInfoBtn" onClick={() => setModify2(true)}>修改</div>}
             {modify2?<div className="ModifyInfoBtn"  onClick={() => updatePhoneNs(phoneN)}>確認</div>:<></>}
 
-            {modify3?<input type="text" className="personalInfos2 pIinput1" autoFocus defaultValue={userInfo.address} onChange={e =>{setAddress(e.target.value)}}></input>
+            {modify3?<input type="text" className="personalInfos2 pIinput1" autoFocus defaultValue={userInfo.address?userInfo.address:""} onChange={e =>{setAddress(e.target.value)}}></input>
             :<div className="personalInfos2">{userInfo.address}</div>}
             {modify3?<div className="ModifyInfoBtn" onClick={() => setModify3(false)}>取消</div>:
             <div className="ModifyInfoBtn" onClick={() => setModify3(true)}>修改</div>}
